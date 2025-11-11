@@ -1,0 +1,15 @@
+{
+  "apiBase": "/api",
+  "backendUrl": "",
+  "frontendUrl": "",
+  "wsUrl": "",
+  "nodeEnv": "production",
+  "telemetryDisabled": true,
+  "enableSourceMaps": false,
+  "port": 4000,
+  "trustProxy": false,
+  "logLevel": "info",
+  "healthcheckPath": "/healthz",
+  "featureFlags": {},
+  "experimentsEnabled": false
+}
