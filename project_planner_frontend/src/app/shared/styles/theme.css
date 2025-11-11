@@ -73,6 +73,22 @@ button.ghost:hover, .btn.ghost:hover {
   box-shadow: var(--shadow-sm);
 }
 
+/* Form elements */
+input[type="text"], input[type="number"], input[type="date"], select, textarea, .input {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font: inherit;
+  color: var(--color-text);
+}
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid rgba(107,114,128,0.3);
+  outline-offset: 1px;
+  border-color: var(--color-primary);
+}
+
 /* Utilities */
 .text-muted { color: var(--color-secondary); }
 .text-success { color: var(--color-success); }

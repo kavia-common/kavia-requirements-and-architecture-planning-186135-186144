@@ -89,7 +89,7 @@ export class ApiService {
         headers: this.jsonHeaders(),
       })
       .pipe(
-        map((data) => ({ data: data as unknown })),
+        map((data) => ({ data: data as { ok: true; savedAt: string } })),
         catchError((err) => {
           const e = toApiError(err);
           return throwError(() => ({ error: { message: e.message, code: e.status } }));
