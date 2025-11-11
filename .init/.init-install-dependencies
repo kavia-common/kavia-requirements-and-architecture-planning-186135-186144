@@ -1,0 +1,4 @@
+{
+    "command": "npm install --legacy-peer-deps",
+    "working_directory": "/home/kavia/workspace/code-generation/kavia-requirements-and-architecture-planning-186135-186144/project_planner_frontend"
+}
