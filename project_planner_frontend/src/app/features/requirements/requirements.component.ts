@@ -142,6 +142,36 @@ export class RequirementsComponent {
   editModel: Requirement = { id: '', title: '', description: '', status: 'open', tags: [] };
   tagsString = '';
 
+  // PUBLIC_INTERFACE
+  hasUnsavedChanges(): boolean {
+    /**
+     * Returns true if there are potential unsaved changes:
+     * - Add form is open and contains any input
+     * - Edit form is active and contains any input
+     */
+    if (this.adding) {
+      if (
+        this.newModel.title?.trim() ||
+        this.newModel.description?.trim() ||
+        this.newTags?.trim() ||
+        (this.newModel.status && this.newModel.status !== 'open')
+      ) {
+        return true;
+      }
+    }
+    if (this.editId) {
+      if (
+        this.editModel.title?.trim() ||
+        this.editModel.description?.trim() ||
+        this.tagsString?.trim() ||
+        (this.editModel.status && this.editModel.status !== 'open')
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   filtered = computed(() => {
     const q = this.query.trim().toLowerCase();
     const list = this.selectors.requirements();

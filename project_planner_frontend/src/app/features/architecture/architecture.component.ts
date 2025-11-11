@@ -122,6 +122,28 @@ export class ArchitectureComponent {
   editModel: ArchitectureItem = { id: '', title: '', description: '', type: 'component', links: [] };
   editLinks = '';
 
+  // PUBLIC_INTERFACE
+  hasUnsavedChanges(): boolean {
+    // Consider dirty if add form is open with any content or edit form has any content
+    if (this.adding) {
+      if (
+        this.newItem.title?.trim() ||
+        this.newItem.description?.trim() ||
+        this.newLinks.trim() ||
+        (this.newItem.type && this.newItem.type !== 'component')
+      ) return true;
+    }
+    if (this.editId) {
+      if (
+        this.editModel.title?.trim() ||
+        this.editModel.description?.trim() ||
+        this.editLinks.trim() ||
+        (this.editModel.type && this.editModel.type !== 'component')
+      ) return true;
+    }
+    return false;
+  }
+
   startAdd(): void {
     this.adding = true;
     this.newItem = { id: randomId(), title: '', description: '', type: 'component', links: [] };

@@ -107,6 +107,29 @@ export class ResourcesComponent implements OnInit {
   editId: string | null = null;
   editModel: ResourceItem = { id: '', role: '', name: '', allocationPercent: 0, notes: '' };
 
+  // PUBLIC_INTERFACE
+  hasUnsavedChanges(): boolean {
+    if (this.adding) {
+      const dirty = !!(
+        this.newItem.role?.trim() ||
+        this.newItem.name?.trim() ||
+        (typeof this.newItem.allocationPercent === 'number' && this.newItem.allocationPercent !== 100) ||
+        this.newItem.notes?.trim()
+      );
+      if (dirty) return true;
+    }
+    if (this.editId) {
+      const dirty = !!(
+        this.editModel.role?.trim() ||
+        this.editModel.name?.trim() ||
+        (typeof this.editModel.allocationPercent === 'number') ||
+        this.editModel.notes?.trim()
+      );
+      if (dirty) return true;
+    }
+    return false;
+  }
+
   ngOnInit(): void {
     // optional initial load could be triggered here if desired
   }

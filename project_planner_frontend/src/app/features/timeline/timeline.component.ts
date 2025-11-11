@@ -124,6 +124,29 @@ export class TimelineComponent {
   editModel: TimelineMilestone = { id: '', title: '', dueDate: '', status: 'planned', notes: '' };
   editDate = '';
 
+  // PUBLIC_INTERFACE
+  hasUnsavedChanges(): boolean {
+    if (this.adding) {
+      const dirty = !!(
+        this.newItem.title?.trim() ||
+        (this.newDate && this.newDate !== new Date().toISOString().slice(0,10)) ||
+        (this.newItem.status && this.newItem.status !== 'planned') ||
+        this.newItem.notes?.trim()
+      );
+      if (dirty) return true;
+    }
+    if (this.editId) {
+      const dirty = !!(
+        this.editModel.title?.trim() ||
+        this.editDate?.trim() ||
+        (this.editModel.status && this.editModel.status !== 'planned') ||
+        this.editModel.notes?.trim()
+      );
+      if (dirty) return true;
+    }
+    return false;
+  }
+
   startAdd(): void {
     this.adding = true;
     const today = new Date().toISOString().slice(0,10);
