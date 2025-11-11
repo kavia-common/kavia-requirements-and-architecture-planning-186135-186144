@@ -1,0 +1,10 @@
+<aside class="sidebar" role="navigation" aria-label="Main navigation">
+  <ul class="nav">
+    <li *ngFor="let item of links">
+      <a [routerLink]="item.path" routerLinkActive="active" class="nav-link">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="label">{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+</aside>

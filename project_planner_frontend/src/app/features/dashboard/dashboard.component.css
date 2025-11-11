@@ -1,0 +1,35 @@
+.dashboard .heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin: var(--spacing-6) 0;
+}
+
+.cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.item {
+  padding: var(--spacing-6);
+}
+
+.item-head h2 {
+  font-size: 14px;
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-3);
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .cards { grid-template-columns: 1fr; }
+}

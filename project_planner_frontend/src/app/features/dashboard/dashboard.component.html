@@ -1,0 +1,11 @@
+<section class="dashboard container">
+  <h1 class="heading">Overview</h1>
+  <div class="grid cards">
+    <div class="card item" *ngFor="let c of cards">
+      <div class="item-head">
+        <h2>{{ c.title }}</h2>
+      </div>
+      <p class="value" [class.text-success]="c.tone === 'success'">{{ c.value }}</p>
+    </div>
+  </div>
+</section>

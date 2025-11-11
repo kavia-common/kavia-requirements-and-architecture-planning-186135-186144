@@ -1,0 +1,103 @@
+:root {
+  --color-primary: #6B7280;
+  --color-secondary: #9CA3AF;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-text: #111827;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 2px 6px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Typography */
+body {
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+/* Links and buttons */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
+}
+
+button, .btn {
+  appearance: none;
+  background: var(--color-primary);
+  color: #fff;
+  border: 1px solid var(--color-primary);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: background .15s ease, border-color .15s ease, box-shadow .15s ease, color .15s ease;
+}
+button.ghost, .btn.ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+button:hover, .btn:hover {
+  box-shadow: var(--shadow-md);
+}
+button.ghost:hover, .btn.ghost:hover {
+  border-color: var(--color-primary);
+}
+
+/* Surfaces */
+.card {
+  background: var(--color-surface);
+  border: 1px solid #E5E7EB;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Utilities */
+.text-muted { color: var(--color-secondary); }
+.text-success { color: var(--color-success); }
+.text-error { color: var(--color-error); }
+.bg-surface { background: var(--color-surface); }
+.border { border: 1px solid #E5E7EB; }
+
+/* Layout helpers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+.grid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+.flex {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
